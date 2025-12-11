@@ -1,0 +1,89 @@
+---
+---
+
+<div class="language-switcher relative inline-block">
+  <button 
+    id="language-button"
+    type="button"
+    class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+  >
+    <span class="text-xl">🇬🇧</span>
+    <span class="hidden md:inline">English</span>
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div 
+    id="language-dropdown"
+    class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50 max-h-96 overflow-y-auto border border-gray-200"
+  >
+    <a href="/" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇬🇧</span>
+      <span class="flex-1">English</span>
+    </a>
+    <a href="/zh" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇨🇳</span>
+      <span class="flex-1">中文</span>
+    </a>
+    <a href="/ja" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇯🇵</span>
+      <span class="flex-1">日本語</span>
+    </a>
+    <a href="/ko" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇰🇷</span>
+      <span class="flex-1">한국어</span>
+    </a>
+    <a href="/th" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇹🇭</span>
+      <span class="flex-1">ไทย</span>
+    </a>
+    <a href="/vi" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇻🇳</span>
+      <span class="flex-1">Tiếng Việt</span>
+    </a>
+    <a href="/fr" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇫🇷</span>
+      <span class="flex-1">Français</span>
+    </a>
+    <a href="/de" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇩🇪</span>
+      <span class="flex-1">Deutsch</span>
+    </a>
+    <a href="/es" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇪🇸</span>
+      <span class="flex-1">Español</span>
+    </a>
+    <a href="/sv" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇸🇪</span>
+      <span class="flex-1">Svenska</span>
+    </a>
+    <a href="/da" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition block">
+      <span class="text-xl">🇩🇰</span>
+      <span class="flex-1">Dansk</span>
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    setTimeout(function() {
+      var button = document.getElementById('language-button');
+      var dropdown = document.getElementById('language-dropdown');
+
+      if (button && dropdown) {
+        button.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdown.classList.toggle('hidden');
+        };
+
+        document.onclick = function(e) {
+          if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+          }
+        };
+      }
+    }, 100);
+  })();
+</script>
